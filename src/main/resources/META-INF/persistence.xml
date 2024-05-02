@@ -4,7 +4,9 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
 
-        <class>be.intecbrussel.model.Student</class>
+        <class>be.intecbrussel.model.Appointment</class>
+        <class>be.intecbrussel.model.User</class>
+
 
         <properties>
             <!--property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/-->

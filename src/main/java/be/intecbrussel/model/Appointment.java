@@ -9,14 +9,14 @@ import java.time.LocalTime;
 @Table(name = "Appointment_Info")
 public class Appointment {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Appointment_Id")
     private long id;
     private String title;
     private String description;
     private LocalDate appointmentDate;
     private LocalTime appointmentTime;
-    @OneToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.PERSIST})
+    @OneToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE,CascadeType.REMOVE,CascadeType.REFRESH})
     private User user;
 
     public Appointment()
@@ -84,6 +84,14 @@ public class Appointment {
 
     public void setAppointmentTime(LocalTime appointmentTime) {
         this.appointmentTime = appointmentTime;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override

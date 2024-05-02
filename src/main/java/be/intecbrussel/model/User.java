@@ -1,27 +1,31 @@
 package be.intecbrussel.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class User {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "User_Id")
-    private int userId;
+    private long userId;
     private String firstName;
     private String lastName;
 
     public User() {
     }
 
-    public User(int userId, String firstName, String lastName) {
+    public User(long userId, String firstName, String lastName) {
         this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
     }
 
-    public int getUserId() {
+    public User(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    public long getUserId() {
         return userId;
     }
 
